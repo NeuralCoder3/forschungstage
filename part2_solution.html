@@ -17,7 +17,7 @@
         </div>
 
         <div>
-          <p> Wir initialisieren Coq und widerholen die Definition of Listen.</p>
+          <p> Wir initialisierenRocq und widerholen die Definition of Listen.</p>
           <textarea id="addnC">
 Require Import Init.Prelude Unicode.Utf8.
 Require Import Lia. 
@@ -39,7 +39,7 @@ Tactic Notation "case_analysis_is_leq" ident(x) ident(y) := (destruct (le_gt_dec
 
           <h4>Die Taktik <code>lia</code> für numerische Goals</h4>
 
-          <p>In Coq stellt <code>x <= y</code> die Aussage "x ist kleiner oder gleich y" dar.
+          <p>InRocq stellt <code>x <= y</code> die Aussage "x ist kleiner oder gleich y" dar.
             Wenn numerische Aussagen zu beweisen sind, z.B. kleiner-gleich-Aussagen, können wir die Taktik
             <code>lia</code> benutzen. Diese Taktik versucht
             die zu zeigende numerische Aussage aus den Annahmen zu beweisen. Für unsere Fälle reicht diese Taktik aus.
@@ -215,7 +215,7 @@ Qed.</textarea>
 
           <h2>Abschnitt 4 (Zusatz): Noch mehr Korrektheit!</h2>
           <p> Im vorherigen Abschnitte haben wir bewiesen, dass Insertion Sort sortierte Liste erzeugt.
-            Jedoch fehlt hier noch was! Diese Aufgabe bearbeiten wir aus Zeitgründen nicht in Coq. </p>
+            Jedoch fehlt hier noch was! Diese Aufgabe bearbeiten wir aus Zeitgründen nicht inRocq. </p>
 
           <h4> Aufgabe 4.1 </h4>
           <p> Gebt ein Beispiel für einen "Sortieralgorithmus", der immer eine sortierte Liste zurück gibt, aber
@@ -228,13 +228,13 @@ Qed.</textarea>
           <h4> Aufgabe 4.3</h4>
           <p> Überleget, ob eine Funktion, die eine sortierte Liste zurück gibt und eure Eigenschaft aus 4.2 erfüllt,
             schon eindeutig spezifiziert ist. Falls nein, wie könnte eine Funktion aussehen, die dies alles erfüllt,
-            aber andere Ergebnisse als <code>sort</code> liefert? Ihr müsst diese nicht unbedingt in Coq implementieren.
+            aber andere Ergebnisse als <code>sort</code> liefert? Ihr müsst diese nicht unbedingt inRocq implementieren.
           </p>
 
           <h4> Aufgabe 4.4</h4>
           <p>Versucht eine weitere Aussage zu definieren, die unseren Sortieralgorithmus eindeutig spezifiziert. Jeder
             andere Algorithmus, der diese Spezifikation erfüllt, muss immer die selben Ergebnisse wie <code>sort</code>
-            liefern. Es kann sein, dass ihr Hilfsfunktionen definieren müsst. Auch diese Aufgabe müsst ihr nicht in Coq
+            liefern. Es kann sein, dass ihr Hilfsfunktionen definieren müsst. Auch diese Aufgabe müsst ihr nicht inRocq
             lösen.</p>
 
         </div>
