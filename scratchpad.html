@@ -3,10 +3,10 @@
 
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-  <meta name="description" content="An Online IDE for the Coq Theorem Prover" />
+  <meta name="description" content="An Online IDE for the Rocq Theorem Prover" />
   <link rel="icon" href="../ui-images/favicon.png">
 
-  <title>jsCoq – The Coq Theorem Prover Online IDE</title>
+  <title>jsCoq – The Rocq Theorem Prover Online IDE</title>
   <style>
     /* Allow some extra scroll space at the bottom & to the right */
     .CodeMirror-lines {
@@ -18,7 +18,7 @@
 
 <body class="jscoq-main">
   <div id="ide-wrapper" class="toggled" data-filename="scratchpad.v">
-    <!-- Editor and panel are created here by CoqManager -->
+    <!-- Editor and panel are created here by RocqManager -->
   </div>
 
   <script type="module">
@@ -39,7 +39,7 @@
     };
 
     /* Global reference */
-    var coq, last_filename = localStorage['scratchpad.last_filename'],
+    var Rocq, last_filename = localStorage['scratchpad.last_filename'],
       set_filename = fn => document.getElementById('ide-wrapper')
         .setAttribute('data-filename', fn);
 
@@ -48,15 +48,15 @@
     else if (last_filename) set_filename(last_filename);
 
     JsCoq.start(jscoq_opts).then(res => {
-      coq = res;
-      if (sp.has('project')) coq.openProject(sp.get('project'));
-      if (sp.has('share')) coq.openCollab({ hastebin: sp.get('share') });
-      if (sp.has('p2p')) coq.openCollab({ p2p: sp.get('p2p') });
-      if (sp.has('code')) coq.provider.load(sp.get('code'), sp.get('fn') || 'playground');
+      Rocq = res;
+      if (sp.has('project')) Rocq.openProject(sp.get('project'));
+      if (sp.has('share')) Rocq.openCollab({ hastebin: sp.get('share') });
+      if (sp.has('p2p')) Rocq.openCollab({ p2p: sp.get('p2p') });
+      if (sp.has('code')) Rocq.provider.load(sp.get('code'), sp.get('fn') || 'playground');
     });
 
     window.addEventListener('beforeunload', () => {
-      var sp = coq.provider.snippets[0];
+      var sp = Rocq.provider.snippets[0];
       localStorage['scratchpad.last_filename'] = sp.filename;
     });
   </script>

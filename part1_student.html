@@ -14,28 +14,28 @@
       <div id="document">
         <div>
           <h1>Forschungstage 2025: Beweisen ist auch nur Programmieren (Teil 1)</h1>
-          <p>Wir verwenden JsCoq um Coq in HTML Webseiten verwenden zu können. Verwendung:
+          <p>Wir verwenden JsCoq um Rocq in HTML Webseiten verwenden zu können. Verwendung:
           <ul>
             <li> Nächstes Kommando ausführen: Pfeil nach Unten klicken bzw. Alt + Down
             <li> Letztes Kommando rückgängig machen: Pfeil nach Oben klicken bzw. Alt + Up
             <li> Alle Kommandos bis zur Position des Cursors ausführen: Cursor knopf drücken oder Alt + Enter
           </ul>
-          Unter Mac sollte Cmd anstatt Alt funktionieren. Folgender Coq Code initialisiert Coq für uns und interessiert
+          Unter Mac sollte Cmd anstatt Alt funktionieren. Folgender Rocq Code initialisiert Rocq für uns und interessiert
           hier nicht weiter (es kann einer Weile dauern, bis er geladen ist).</p>
         </div>
 
         <div>
           <textarea id="addnC">
-From Coq Require Import Init.Prelude Unicode.Utf8.
+From Rocq Require Import Init.Prelude Unicode.Utf8.
 Notation "'inc'" := S. 
 </textarea>
         </div>
 
         <div>
-          <h2>Abschnitt 1: Aussagen in Coq.</h2>
-          <p>Wir beginnen mit einfachen Aussagen in Coq und Taktiken um mit Aussagen umzugehen.
+          <h2>Abschnitt 1: Aussagen in Rocq.</h2>
+          <p>Wir beginnen mit einfachen Aussagen in Rocq und Taktiken um mit Aussagen umzugehen.
             <br>
-            In Coq heißen Aussagen Prop und mit <code>(X:Prop)</code> legen wir fest, dass X eine Aussage ist. Wenn X
+            In Rocq heißen Aussagen Prop und mit <code>(X:Prop)</code> legen wir fest, dass X eine Aussage ist. Wenn X
             eine Aussage ist, schreiben wir <code>(H:X)</code>
             um X anzunehmen und diese Annahme bekommt den Namen H.
             <br>
@@ -111,7 +111,7 @@ Proof.
   reflexivity.
 Qed.</textarea>
 
-          <h3>Übungseinheit 1: Aussagen in Coq </h3>
+          <h3>Übungseinheit 1: Aussagen in Rocq </h3>
           <p> Jetzt seid ihr dran! In dieser Übung sollt ihr euch mit oben vorgestellten Taktiken vertraut machen.</p>
 
           <h4>Aufgabe 1.1</h4>
@@ -146,7 +146,7 @@ Admitted. </textarea>
 
         </div>
         <div>
-          <h2>Abschnitt 2: Listen in Coq</h2>
+          <h2>Abschnitt 2: Listen in Rocq</h2>
           <p>
             In diesem Abschnitt betrachten wir Listen. Zur Einfachheit beschränken wir und auf Listen von natürlichen
             Zahlen.
@@ -159,7 +159,7 @@ Inductive list : Type :=
 </textarea>
 
           <p>Üblicherweise schreibt man nicht <code>cons x xs</code> sondern <code>x :: xs</code>.
-            Folgendes Kommando aktiviert diese Notation in Coq.</p>
+            Folgendes Kommando aktiviert diese Notation in Rocq.</p>
           <textarea id="List2">
 Infix "::" := cons (at level 60, right associativity).</textarea>
 
@@ -167,7 +167,7 @@ Infix "::" := cons (at level 60, right associativity).</textarea>
           <p>Wir beginnen mit einfachen Funktionen auf Listen. Mit <code>match</code> implementieren wir eine
             Fallunterscheidung, ob eine Liste durch <code>nil</code> oder durch <code>cons</code> erzeugt wurde. Im Fall
             f&uuml;r cons geben die beiden folgenden Namen die Variable für die Zahl und die restliche Liste an.
-            Funktionen können in Coq auch Aussagen erzeugen. Folgende Funktion erzeugt eine Aussage, die gültig ist,
+            Funktionen können in Rocq auch Aussagen erzeugen. Folgende Funktion erzeugt eine Aussage, die gültig ist,
             wenn die gegebene Liste nicht leer ist:</p>
           <textarea id="List3">
 Definition nonempty (xs : list) : Prop :=
@@ -177,7 +177,7 @@ Definition nonempty (xs : list) : Prop :=
   end.</textarea>
 
           <p>Diese Funktion berechnet die Länge einer Liste. Die Funktion <code>inc</code> erh&ouml;ht eine gegebene
-            Zahl um eins. Das Schlüsselwort <code>Fixpoint</code> ist wichtig um Coq mitzuteilen dass es sich um eine
+            Zahl um eins. Das Schlüsselwort <code>Fixpoint</code> ist wichtig um Rocq mitzuteilen dass es sich um eine
             rekursive Funktion handelt.</p>
           <textarea id="List4">Fixpoint length (xs : list) : nat :=
   match xs with
@@ -185,7 +185,7 @@ Definition nonempty (xs : list) : Prop :=
   | x :: xs' => inc (length xs')
   end.</textarea>
 
-          <p>Mit <code>eval simpl in</code> können wir in Coq einen Ausdruck auswerten, z.B. die Länge einer konkreten
+          <p>Mit <code>eval simpl in</code> können wir in Rocq einen Ausdruck auswerten, z.B. die Länge einer konkreten
             Liste berechnen:</p>
           <textarea id="List5">Eval simpl in (length (0 :: 1 :: 2 :: nil)).
 Eval simpl in (length nil). </textarea>
@@ -199,7 +199,7 @@ Eval simpl in (length nil). </textarea>
  
 Infix  "++" := app (at level 60, right associativity).</textarea>
 
-          <p>In Coq können wir Ausdrücke teilweise auswerten, wenn nicht alle Parameter einer Funktion bekannt sind. Mit
+          <p>In Rocq können wir Ausdrücke teilweise auswerten, wenn nicht alle Parameter einer Funktion bekannt sind. Mit
             <code>Section</code> und <code>Variable</code> können wir festlegen, dass xs eine Variable ist.
           </p>
           <textarea id="List7">
